@@ -25,3 +25,6 @@
 /Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/_ViewImports.cshtml.g.cs
 /Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/_ViewStart.cshtml.g.cs
 /Users/madina/Projects/FinalProject/FinalProject/bin/Debug/netcoreapp2.1/appsettings.json
+/Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/Roles/Create.cshtml.g.cs
+/Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/Roles/Index.cshtml.g.cs
+/Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/Roles/Update.cshtml.g.cs

@@ -1,13 +1,11 @@
 ﻿<!DOCTYPE html>
-
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width" />
-        <title>@ViewBag.Title</title>
-    </head>
-    <body>
-        <div>
-            @RenderBody()
-        </div>
-    </body>
-</html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
+</head>
+<body class="m-1 p-1">
+    @RenderBody()
+</body>
+</html> 

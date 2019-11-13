@@ -12,7 +12,8 @@
     <Folder Include="Controllers\" />
     <Folder Include="Views\Main\" />
     <Folder Include="Views\Shared\" />
-    <Folder Include="Startup.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
+    <Folder Include="wwwroot\css\" />
+    <Folder Include="Views\Roles\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +35,5 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Models\Users.cs" />
-    <Compile Remove="Startup.cs" />
   </ItemGroup>
 </Project>
