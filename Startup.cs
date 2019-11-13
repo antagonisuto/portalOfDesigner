@@ -33,8 +33,7 @@ namespace courseProject
         {
             services.AddDbContext<AppDBContext>(options => options.UseNpgsql(_confSting.GetConnectionString("DefaultConnection")));
             //services.AddDefaultIdentity<Users, IdentityRole<long>>().AddEntityFrameworkStores<AppDBContext, long>()
-               // .AddDefaultTokenProviders();
-            
+            // .AddDefaultTokenProviders();
             services.AddMvc();
         }
 

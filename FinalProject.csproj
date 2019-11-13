@@ -12,6 +12,7 @@
     <Folder Include="Controllers\" />
     <Folder Include="Views\Main\" />
     <Folder Include="Views\Shared\" />
+    <Folder Include="Startup.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,4 +29,11 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Remove="Views\Designers\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Models\Users.cs" />
+    <Compile Remove="Startup.cs" />
+  </ItemGroup>
 </Project>

@@ -10,51 +10,67 @@ namespace FinalProject.Data
 
         public AppDBContext(DbContextOptions options) : base(options)
         {
+
         }
 
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<Customers> Customers { get; set; }
-        public DbSet<Designers> Designers { get; set; }
-        public DbSet<Orders> Orders { get; set; }
-        //public DbSet<Orders_Designers> Orders_Designers { get; set; }
-        public DbSet<Requests> Requests { get; set; }
-        //public DbSet<Requests_Customers> Requests_Customers { get; set; }
-        public DbSet<States> States { get; set; }
-        public DbSet<Users> Users { get; set; }
-
+        public DbSet<Userss> Userss { get; set; }
+        public DbSet<Authors> Authors { get; set; }
+        public DbSet<Books> Books { get; set; }
+        public DbSet<Publishers> Publishers { get; set; }
+        public DbSet<Roles> Roles { get; set; }
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //----------------Request _ Customers ------------//
-            modelBuilder.Entity<Requests_Customers>()
-                .HasKey(t => new { t.Customers_id, t.Request_id });
+            //BooksRequests//
+            modelBuilder.Entity<BooksRequests>()
+                .HasKey(t => new { t.Book_id, t.User_id });
 
-            modelBuilder.Entity<Requests_Customers>()
-                .HasOne(sc => sc.Request)
-                .WithMany(s => s.Requests_Customers)
-                .HasForeignKey(sc => sc.Request_id);
+            modelBuilder.Entity<BooksRequests>()
+                .HasOne(sc => sc.User)
+                .WithMany(s => s.BooksRequests)
+                .HasForeignKey(sc => sc.User_id);
 
-            modelBuilder.Entity<Requests_Customers>()
-                .HasOne(sc => sc.Customer)
-                .WithMany(c => c.Requests_Customers)
-                .HasForeignKey(sc => sc.Customers_id);
-            //----------------Request _ Customers ------------//
+            modelBuilder.Entity<BooksRequests>()
+                .HasOne(sc => sc.Book)
+                .WithMany(c => c.BooksRequests)
+                .HasForeignKey(sc => sc.Book_id);
+            //BooksRequests//
 
-            //----------------Orders _ Designer ------------//
-            modelBuilder.Entity<Orders_Designers>()
-                 .HasKey(t => new { t.Designer_id, t.Order_id });
+            //BooksHaveAuthors//
+            modelBuilder.Entity<BooksHaveAuthors>()
+                .HasKey(t => new { t.Author_id, t.Book_id });
 
-            modelBuilder.Entity<Orders_Designers>()
-                .HasOne(sc => sc.Order)
-                .WithMany(s => s.Orders_Designers)
-                .HasForeignKey(sc => sc.Order_id);
+            modelBuilder.Entity<BooksHaveAuthors>()
+                .HasOne(sc => sc.Book)
+                .WithMany(s => s.BooksHaveAuthors)
+                .HasForeignKey(sc => sc.Book_id);
 
-            modelBuilder.Entity<Orders_Designers>()
-                .HasOne(sc => sc.Designer)
-                .WithMany(c => c.Orders_Designers)
-                .HasForeignKey(sc => sc.Designer_id);
-            //----------------Orders _ Designer------------//
+            modelBuilder.Entity<BooksHaveAuthors>()
+                .HasOne(sc => sc.Authors)
+                .WithMany(c => c.BooksHaveAuthors)
+                .HasForeignKey(sc => sc.Author_id);
+            //BooksHaveAuthors//
+
+            //BookInventory//
+            modelBuilder.Entity<BooksInventory>()
+                .HasKey(t => new { t.Book_id, t.User_id });
+
+            modelBuilder.Entity<BooksInventory>()
+                .HasOne(sc => sc.User)
+                .WithMany(s => s.BooksInventories)
+                .HasForeignKey(sc => sc.User_id);
+
+            modelBuilder.Entity<BooksInventory>()
+                .HasOne(sc => sc.Book)
+                .WithMany(c => c.BooksInventories)
+                .HasForeignKey(sc => sc.Book_id);
+            //BookInventory//
         }
+
+        public DbSet<BooksHaveAuthors> BooksHaveAuthors { get; set; }
+        public DbSet<BooksInventory> BooksInventories { get; set; }
+        public DbSet<BooksRequests> BooksRequests { get; set; }
     }
-    
+
 }
