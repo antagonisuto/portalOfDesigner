@@ -28,3 +28,12 @@
 /Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/Roles/Create.cshtml.g.cs
 /Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/Roles/Index.cshtml.g.cs
 /Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/Roles/Update.cshtml.g.cs
+/Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/Authors/Create.cshtml.g.cs
+/Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/Authors/Index.cshtml.g.cs
+/Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/Authors/Update.cshtml.g.cs
+/Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/Books/Create.cshtml.g.cs
+/Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/Books/Index.cshtml.g.cs
+/Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/Books/Update.cshtml.g.cs
+/Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/BooksHaveAuthors/Create.cshtml.g.cs
+/Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/BooksHaveAuthors/Index.cshtml.g.cs
+/Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/BooksHaveAuthors/Update.cshtml.g.cs

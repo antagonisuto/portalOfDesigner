@@ -8,8 +8,11 @@ namespace FinalProject.Models
     {
         [Key]
         public int Author_id { get; set; }
+
+        [Required]
+        [StringLength(50)]
         public string Author_name { get; set; }
 
-        public ICollection<BooksHaveAuthors> BooksHaveAuthors { get; set; }
+        public virtual ICollection<BooksHaveAuthors> BooksHaveAuthors { get; set; }
     }
 }

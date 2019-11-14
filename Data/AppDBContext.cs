@@ -66,6 +66,7 @@ namespace FinalProject.Data
                 .WithMany(c => c.BooksInventories)
                 .HasForeignKey(sc => sc.Book_id);
             //BookInventory//
+
         }
 
         public DbSet<BooksHaveAuthors> BooksHaveAuthors { get; set; }
