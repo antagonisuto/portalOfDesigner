@@ -49,6 +49,7 @@ namespace FinalProject.Controllers
 
         public async Task<IActionResult> Update(int? Book_id, int? Author_id)
         {
+            Console.WriteLine("1"+Book_id, Author_id);
             if (Book_id == null || Author_id == null)
             {
                 return NotFound();
@@ -92,6 +93,22 @@ namespace FinalProject.Controllers
             _context.BooksHaveAuthors.Remove(book);
             _context.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> Details(int? id, int? author)
+        {
+            if (id == null || author == null)
+            {
+                return NotFound();
+            }
+
+            var user_Answers = await _context.BooksHaveAuthors.FindAsync(id, author);
+            if (user_Answers == null)
+            {
+                return NotFound();
+            }
+
+            return View(user_Answers);
         }
 
 

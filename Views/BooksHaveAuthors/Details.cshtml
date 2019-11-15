@@ -1,0 +1,34 @@
+﻿@model FinalProject.Models.BooksHaveAuthors
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+
+    <div>
+        <h4>CourseMember</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Author_id)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Author_id)
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Book_id)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Book_id)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        @Html.ActionLink("Update", "Update", new { Book_id = Model.Book_id, Author_id = Model.Author_id }) |
+        <a asp-action="Index">Back to List</a>
+    </div>
+</body>
+</html>

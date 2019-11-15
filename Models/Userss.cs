@@ -8,7 +8,7 @@ namespace FinalProject.Models
     public class Userss
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int User_id { get; set; }
 
         [Required]
@@ -23,8 +23,7 @@ namespace FinalProject.Models
         [StringLength(100, ErrorMessage = "Full Name cannot be longer than 100 characters.")]
         public string FullName { get; set; }
 
-        public int Role_id { get; set; }
-
+        public int? Role_id { get; set; }
         [ForeignKey("Role_id")]
         public virtual Roles Role { get; set; }
 

@@ -27,18 +27,24 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Book.Book_title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Authors.Author_name)
-            </td>
-            <td><a asp-action="Update" asp-route-Book_id="@item.Book_id" asp-route-Author_id="@item.Author_id">Update</a></td>
-            <td>
-                @Html.ActionLink("Delete", "Delete", new { Book_id = item.Book_id, Author_id = item.Author_id })
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Book.Book_title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Authors.Author_name)
+                </td>
+                <td>
+                    @Html.ActionLink("Update", "Update", new { Book_id = item.Book_id, Author_id = item.Author_id })
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { Book_id = item.Book_id, Author_id = item.Author_id })
+                </td>
+                <td> @Html.ActionLink("Details", "Details", new { id1 = item.Book_id, author = item.Author_id })
+                </td>
+            </tr>
         }
     </tbody>
 </table>
+
+

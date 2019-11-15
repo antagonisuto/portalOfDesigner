@@ -18,6 +18,9 @@
     <Folder Include="Views\Books\" />
     <Folder Include="Views\BooksHaveAuthors\" />
     <Folder Include="Models\Authors.cs" Condition=" '$(EnableDefaultCompileItems)' == 'true' " />
+    <Folder Include="Views\Publishers\" />
+    <Folder Include="Views\BooksInventory\" />
+    <Folder Include="Views\Userss\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,6 +42,5 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Models\Users.cs" />
-    <Compile Remove="Models\Authors.cs" />
   </ItemGroup>
 </Project>

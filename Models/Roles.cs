@@ -8,7 +8,6 @@ namespace FinalProject.Models
     public class Roles
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Role_id { get; set; }
 
         [Required]
