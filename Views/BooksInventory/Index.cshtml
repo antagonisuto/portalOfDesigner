@@ -9,7 +9,7 @@ ViewData["Title"] = title;
 
 <a asp-action="Create">Create New</a>
 
-<table class="table">
+<table class="table table-bordered table-sm table-striped">
     <thead>
         <tr>
             <th>
@@ -18,7 +18,8 @@ ViewData["Title"] = title;
             <th>
                 Inventory
             </th>
-            <th></th>
+            <th>Update</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -33,8 +34,9 @@ ViewData["Title"] = title;
                 </td>
 
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id1 = item.Book_id, id2 = item.User_id }) |
-                    @Html.ActionLink("Details", "Details", new { id1 = item.Book_id, id2 = item.User_id }) |
+                    @Html.ActionLink("Update", "Update", new { id1 = item.Book_id, id2 = item.User_id })
+                </td>
+                <td>
                     @Html.ActionLink("Delete", "Delete", new { id1 = item.Book_id, id2 = item.User_id })
                 </td>
             </tr>

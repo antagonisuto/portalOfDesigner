@@ -35,12 +35,10 @@
                     @Html.DisplayFor(modelItem => item.Authors.Author_name)
                 </td>
                 <td>
-                    @Html.ActionLink("Update", "Update", new { Book_id = item.Book_id, Author_id = item.Author_id })
+                    @Html.ActionLink("Update", "Update", new { id1 = item.Book_id, id2 = item.Author_id })
                 </td>
                 <td>
-                    @Html.ActionLink("Delete", "Delete", new { Book_id = item.Book_id, Author_id = item.Author_id })
-                </td>
-                <td> @Html.ActionLink("Details", "Details", new { id1 = item.Book_id, author = item.Author_id })
+                    @Html.ActionLink("Delete", "Delete", new { id1 = item.Book_id, Author_id = item.Author_id })
                 </td>
             </tr>
         }

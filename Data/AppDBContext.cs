@@ -18,7 +18,10 @@ namespace FinalProject.Data
         public DbSet<Books> Books { get; set; }
         public DbSet<Publishers> Publishers { get; set; }
         public DbSet<Roles> Roles { get; set; }
-        
+        public DbSet<BooksHaveAuthors> BooksHaveAuthors { get; set; }
+        public DbSet<BooksInventory> BooksInventories { get; set; }
+        public DbSet<BooksRequests> BooksRequests { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -69,9 +72,7 @@ namespace FinalProject.Data
 
         }
 
-        public DbSet<BooksHaveAuthors> BooksHaveAuthors { get; set; }
-        public DbSet<BooksInventory> BooksInventories { get; set; }
-        public DbSet<BooksRequests> BooksRequests { get; set; }
+        
     }
 
 }

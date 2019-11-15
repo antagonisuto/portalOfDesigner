@@ -37,7 +37,6 @@
 /Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/BooksHaveAuthors/Create.cshtml.g.cs
 /Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/BooksHaveAuthors/Index.cshtml.g.cs
 /Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/BooksHaveAuthors/Update.cshtml.g.cs
-/Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/BooksHaveAuthors/Details.cshtml.g.cs
 /Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/Publishers/Create.cshtml.g.cs
 /Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/Publishers/Index.cshtml.g.cs
 /Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/Publishers/Update.cshtml.g.cs
@@ -47,3 +46,7 @@
 /Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/Userss/Create.cshtml.g.cs
 /Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/Userss/Index.cshtml.g.cs
 /Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/Userss/Update.cshtml.g.cs
+/Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/BooksInventory/Delete.cshtml.g.cs
+/Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/BooksRequests/Create.cshtml.g.cs
+/Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/BooksRequests/Index.cshtml.g.cs
+/Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/BooksRequests/Update.cshtml.g.cs

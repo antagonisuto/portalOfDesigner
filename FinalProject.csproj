@@ -21,6 +21,7 @@
     <Folder Include="Views\Publishers\" />
     <Folder Include="Views\BooksInventory\" />
     <Folder Include="Views\Userss\" />
+    <Folder Include="Views\BooksRequests\" />
   </ItemGroup>
 
   <ItemGroup>

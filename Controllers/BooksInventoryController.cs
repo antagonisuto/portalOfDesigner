@@ -27,27 +27,12 @@ namespace courseProject.Controllers
             return View(await myContext.ToListAsync());
         }
 
-        // GET: UserAnswers/Details/5
-        public async Task<IActionResult> Details(int? id1, int? id2)
-        {
-            if (id1 == null || id2 == null)
-            {
-                return NotFound();
-            }
-
-            var user_Answers = await _context.BooksInventories.FindAsync(id1, id2);
-            if (user_Answers == null)
-            {
-                return NotFound();
-            }
-
-            return View(user_Answers);
-        }
+        
         // GET: UserAnswers/Create
         public IActionResult Create()
         {
             ViewData["Book_id"] = new SelectList(_context.Books, "Book_id", "Book_title");
-            ViewData["Author_id"] = new SelectList(_context.Userss, "User_id", "FullName");
+            ViewData["User_id"] = new SelectList(_context.Userss, "User_id", "User_id");
             return View();
         }
 
@@ -65,12 +50,12 @@ namespace courseProject.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["Book_id"] = new SelectList(_context.Books, "Book_id", "Book_title", user_Answers.Book_id);
-            ViewData["User_id"] = new SelectList(_context.Userss, "User_id", "FullName", user_Answers.User_id);
+            ViewData["User_id"] = new SelectList(_context.Userss, "User_id", "User_id", user_Answers.User_id);
             return View(user_Answers);
         }
 
         // GET: UserAnswers/Edit/5
-        public async Task<IActionResult> Edit(int? id1, int? id2)
+        public async Task<IActionResult> Update(int? id1, int? id2)
         {
             if (id1 == null || id2 == null)
             {
@@ -82,30 +67,47 @@ namespace courseProject.Controllers
             {
                 return NotFound();
             }
-            ViewData["Book_id"] = new SelectList(_context.Books, "Book_id", "Book_title", user_Answers.Book_id);
-            ViewData["User_id"] = new SelectList(_context.Userss, "User_id", "FullName", user_Answers.User_id);
+            ViewData["Book_id"] = new SelectList(_context.Books, "id1", "Book_id", user_Answers.Book_id);
+            ViewData["User_id"] = new SelectList(_context.Userss, "id2", "User_id", user_Answers.User_id);
             return View(user_Answers);
         }
 
-        // POST: UserAnswers/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+        //[HttpPost]
+        //public async Task<IActionResult> Update(int id, [Bind("Book_id,User_id")] BooksInventory user_Answers)
+        //{
+
+        //    if (ModelState.IsValid)
+        //    {
+
+        //        _context.Update(user_Answers);
+        //        await _context.SaveChangesAsync();
+
+
+        //    }
+        //    ViewData["Book_id"] = new SelectList(_context.Books, "Book_id", "Book_id", user_Answers.Book_id);
+        //    ViewData["User_id"] = new SelectList(_context.Userss, "User_id", "User_id", user_Answers.User_id);
+        //    return RedirectToAction("Index");
+        //}
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UserId,SurveyId")] BooksInventory user_Answers)
+        public IActionResult Update([Bind("Book_id,User_id")] BooksInventory courseMember)
         {
 
             if (ModelState.IsValid)
             {
 
-                _context.Update(user_Answers);
-                await _context.SaveChangesAsync();
+                _context.Update(courseMember);
+                _context.SaveChanges();
+
 
                 return RedirectToAction(nameof(Index));
+
             }
-            ViewData["Book_id"] = new SelectList(_context.Books, "Book_id", "Book_title", user_Answers.Book_id);
-            ViewData["User_id"] = new SelectList(_context.Userss, "User_id", "Full_name", user_Answers.User_id);
-            return View(user_Answers);
+            ViewData["Book_id"] = new SelectList(_context.Books, "id", "id", courseMember.Book_id);
+            ViewData["User_id"] = new SelectList(_context.Userss, "id", "id", courseMember.User_id);
+            return View(courseMember);
         }
 
         // GET: UserAnswers/Delete/5
@@ -124,20 +126,16 @@ namespace courseProject.Controllers
 
             return View(user_Answers);
         }
+
         // POST: UserAnswers/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id1, int id2)
+        public async Task<IActionResult> Delete(int Book_id, int User_id)
         {
-            var user_Answers = await _context.BooksInventories.FindAsync(id1, id2);
+            var user_Answers = await _context.BooksInventories.FindAsync(Book_id, User_id);
             _context.BooksInventories.Remove(user_Answers);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index");
         }
 
-        private bool User_AnswersExists(int id)
-        {
-            return _context.BooksInventories.Any(e => e.User_id == id);
-        }
     }
 }

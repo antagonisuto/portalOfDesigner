@@ -1,8 +1,8 @@
-﻿@model FinalProject.Models.BooksInventory
+﻿@model FinalProject.Models.BooksRequests
 
 @{
     Layout = "_Layout";
-    var title = "UPDATE BooksInventory";
+    var title = "UPDATE BooksRequests";
     ViewData["Title"] = title;
 }
 
@@ -13,8 +13,7 @@
     <div class="col-md-4">
         <form asp-action="Update" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <!--<input type="hidden" asp-for="UserId" />
-    <input type="hidden" asp-for="SurveyId" />-->
+
             <div class="form-group">
                 <label id="Book_id" name="Book_id" class="control-label">Book_id</label>
                 <input id="Book_id" name="Book_id" class="form-control" value="@Model.Book_id" />

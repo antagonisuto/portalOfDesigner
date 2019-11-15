@@ -47,21 +47,21 @@ namespace FinalProject.Controllers
             return View(BHA);
         }
 
-        public async Task<IActionResult> Update(int? Book_id, int? Author_id)
+        public async Task<IActionResult> Update(int? id1, int? id2)
         {
-            Console.WriteLine("1"+Book_id, Author_id);
-            if (Book_id == null || Author_id == null)
+            
+            if (id1 == null || id2 == null)
             {
                 return NotFound();
             }
 
-            var BHA = await _context.BooksHaveAuthors.FindAsync(Book_id, Author_id);
+            var BHA = await _context.BooksHaveAuthors.FindAsync(id1, id2);
             if (BHA == null)
             {
                 return NotFound();
             }
-            ViewData["Book_id"] = new SelectList(_context.Books, "Book_id", "Book_id", BHA.Book_id);
-            ViewData["Author_id"] = new SelectList(_context.Authors, "Author_id", "Author_id", BHA.Author_id);
+            ViewData["Book_id"] = new SelectList(_context.Books, "id", "Book_id", BHA.Book_id);
+            ViewData["Author_id"] = new SelectList(_context.Authors, "id", "Author_id", BHA.Author_id);
             return View(BHA);
         }
 
@@ -73,17 +73,12 @@ namespace FinalProject.Controllers
 
             if (ModelState.IsValid)
             {
-
                 _context.Update(BHA);
                 await _context.SaveChangesAsync();
-
-
-                return RedirectToAction(nameof(Index));
-
             }
             ViewData["Book_id"] = new SelectList(_context.Books, "Book_id", "Book_id", BHA.Book_id);
             ViewData["Author_id"] = new SelectList(_context.Authors, "Author_id", "Author_id", BHA.Author_id);
-            return View(BHA);
+            return RedirectToAction(nameof(Index));
         }
 
         [HttpPost]
@@ -94,23 +89,5 @@ namespace FinalProject.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        public async Task<IActionResult> Details(int? id, int? author)
-        {
-            if (id == null || author == null)
-            {
-                return NotFound();
-            }
-
-            var user_Answers = await _context.BooksHaveAuthors.FindAsync(id, author);
-            if (user_Answers == null)
-            {
-                return NotFound();
-            }
-
-            return View(user_Answers);
-        }
-
-
     }
 }
