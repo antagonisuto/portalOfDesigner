@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Net.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FinalProject.Models
 {
@@ -13,6 +16,7 @@ namespace FinalProject.Models
 
         [Required]
         [StringLength(50, MinimumLength = 3)]
+        [Remote(action: "VerifyUsername", controller: "Userss")]
         public string Username { get; set; }
 
         [Required]
@@ -21,6 +25,7 @@ namespace FinalProject.Models
 
         [Required]
         [StringLength(100, ErrorMessage = "Full Name cannot be longer than 100 characters.")]
+        [NotContainsDigits]
         public string FullName { get; set; }
 
         public int? Role_id { get; set; }
@@ -29,5 +34,21 @@ namespace FinalProject.Models
 
         public virtual ICollection<BooksRequests> BooksRequests { get; set; }
         public virtual ICollection<BooksInventory> BooksInventories { get; set; }
+
+
+        public class NotContainsDigitsAttribute : ValidationAttribute
+        {
+            protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+            {
+                if (value != null)
+                {
+                    String stringValue = value.ToString();
+                    if (stringValue.Any(char.IsDigit) == false)
+                        return ValidationResult.Success;
+                }
+
+                return new ValidationResult("Name shouldn't contain digits");
+            }
+        }
     }
 }

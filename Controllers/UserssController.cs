@@ -15,6 +15,7 @@ namespace FinalProject.Controllers
     public class UserssController : Controller
     {
         public readonly AppDBContext _context;
+      
 
         public UserssController(AppDBContext context)
         {
@@ -58,6 +59,10 @@ namespace FinalProject.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create([Bind("User_id,Username,Password,FullName,Role_id")] Userss user)
         {
+            if (_context.Userss.Any(x => x.Username == user.Username))
+            {
+                ModelState.AddModelError("Username", "Username already in use");
+            }
             if (ModelState.IsValid)
             {
                 _context.Userss.Add(user);
@@ -143,5 +148,18 @@ namespace FinalProject.Controllers
         {
             return _context.Userss.Any(e => e.User_id == id);
         }
+
+        //VerifyUsername
+        [AcceptVerbs("Get", "Post")]
+        public IActionResult VerifyUsername(string username)
+        {
+            if (_context.Userss.Any(m => m.Username.ToLower() == username.ToLower()))
+            {
+                return Json($"Username {username} is already in use.");
+            }
+
+            return Json(true);
+        }
+
     }
 }

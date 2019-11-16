@@ -15,5 +15,6 @@
         <input asp-for="Pub_name" class="form-control" />
         <span asp-validation-for="Pub_name" class="text-danger"></span>
     </div>
+    @Html.ValidationMessageFor(model => model.Pub_name, "", new { @class = "text-danger" })
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

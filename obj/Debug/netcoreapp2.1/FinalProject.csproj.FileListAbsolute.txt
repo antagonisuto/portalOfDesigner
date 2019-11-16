@@ -50,3 +50,4 @@
 /Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/BooksRequests/Create.cshtml.g.cs
 /Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/BooksRequests/Index.cshtml.g.cs
 /Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/BooksRequests/Update.cshtml.g.cs
+/Users/madina/Projects/FinalProject/FinalProject/obj/Debug/netcoreapp2.1/Razor/Views/BooksHaveAuthors/Delete.cshtml.g.cs

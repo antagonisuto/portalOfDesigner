@@ -81,12 +81,30 @@ namespace FinalProject.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Delete(int id1, int id2)
+        // GET: UserAnswers/Delete/5
+        public async Task<IActionResult> Delete(int? id1, int? id2)
         {
-            var book = await _context.BooksHaveAuthors.FindAsync(id1, id2);
-            _context.BooksHaveAuthors.Remove(book);
-            _context.SaveChanges();
+            if (id1 == null || id2 == null)
+            {
+                return NotFound();
+            }
+
+            var user_Answers = await _context.BooksHaveAuthors.FindAsync(id1, id2);
+            if (user_Answers == null)
+            {
+                return NotFound();
+            }
+
+            return View(user_Answers);
+        }
+
+        // POST: UserAnswers/Delete/5
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> Delete(int Book_id, int User_id)
+        {
+            var user_Answers = await _context.BooksHaveAuthors.FindAsync(Book_id, User_id);
+            _context.BooksHaveAuthors.Remove(user_Answers);
+            await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
     }
